@@ -7,14 +7,14 @@ export const inter = Inter({
 });
 
 export const genjyuuRegular = localFont({
-  src: "../styles/fonts/GenJyuuGothic-Regular.ttf",
+  src: "./GenJyuuGothic-Regular.ttf",
   weight: "400", // フォントのウェイトを指定
   style: "normal", // フォントのスタイルを指定
   display: "swap", // フォントの表示方法を指定
 });
 
 export const genjyuuBold = localFont({
-  src: "../styles/fonts/GenJyuuGothic-Bold.ttf",
+  src: "./GenJyuuGothic-Bold.ttf",
   weight: "700", // フォントのウェイトを指定
   style: "bold", // フォントのスタイルを指定
   display: "swap", // フォントの表示方法を指定
