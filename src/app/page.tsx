@@ -1,9 +1,9 @@
-import { TopPage } from "@/pages/TopPage";
+import { AuthPage } from "@/features/auth/components/AuthPage";
 
 export default function Home() {
   return (
-    <div className="relative">
-      <TopPage />
+    <div className="relative antialiased">
+      <AuthPage />
     </div>
   );
 }

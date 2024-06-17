@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { inter } from "@/utils/fonts";
-import { genjyuuRegular } from "@/utils/fonts";
+import { inter } from "@/assets/fonts/fonts";
+import { genjyuuRegular } from "@/assets/fonts/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
