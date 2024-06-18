@@ -1,10 +1,17 @@
-import { AuthPage } from "@/features/auth/components/AuthPage";
 import { Main } from "@/features/main/components/Main";
+import { redirect } from 'next/navigation'
+import { createClient } from '@/utils/supabase/server'
 
-export default function Home() {
+export default async function Home() {
+  const supabase = createClient()
+
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    redirect('/auth')
+  }
+
   return (
     <div className="relative antialiased">
-      {/* <AuthPage /> */}
       <Main />
     </div>
   );

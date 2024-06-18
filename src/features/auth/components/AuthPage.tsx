@@ -5,6 +5,7 @@ import Google from "@/assets/logos/google.png";
 import X from "@/assets/logos/x.png";
 import Discord from "@/assets/logos/discord.png";
 import Apple from "@/assets/logos/apple.png";
+import { DiscordLoginButton, GoogleLoginButton, XLoginButton } from "./SocialButtons";
 
 export function AuthPage() {
   return (
@@ -29,19 +30,13 @@ export function AuthPage() {
           {/* Social */}
           <ul className="flex justify-between items-center list-none w-80">
             <li className="w-12 h-12 bg-zinc-200 rounded-full flex items-center justify-center">
-              <button className="p-3">
-                <Image src={Google} alt="Google" width={24} height={24} />
-              </button>
+              <GoogleLoginButton />
             </li>
             <li className="w-12 h-12 bg-zinc-200 rounded-full flex items-center justify-center">
-              <button className="p-3">
-                <Image src={X} alt="X" width={22} height={22} />
-              </button>
+              <XLoginButton />
             </li>
             <li className="w-12 h-12 bg-zinc-200 rounded-full flex items-center justify-center">
-              <button className="p-3">
-                <Image src={Discord} alt="Discord" width={24} height={24} />
-              </button>
+              <DiscordLoginButton />
             </li>
             <li className="w-12 h-12 bg-zinc-200 rounded-full flex items-center justify-center">
               <button className="px-3 pt-3 pb-4">
