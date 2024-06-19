@@ -1,9 +1,6 @@
 import Image from "next/image";
 import { BackgroundImage } from "@/components/BackgroundImage";
 import { genjyuuBold } from "@/assets/fonts/fonts";
-import Google from "@/assets/logos/google.png";
-import X from "@/assets/logos/x.png";
-import Discord from "@/assets/logos/discord.png";
 import Apple from "@/assets/logos/apple.png";
 import { DiscordLoginButton, GoogleLoginButton, XLoginButton } from "./SocialButtons";
 
@@ -39,7 +36,7 @@ export function AuthPage() {
               <DiscordLoginButton />
             </li>
             <li className="w-12 h-12 bg-zinc-200 rounded-full flex items-center justify-center">
-              <button className="px-3 pt-3 pb-4">
+              <button className="px-3 pt-3 pb-4 cursor-not-allowed" >
                 <Image src={Apple} alt="Apple" width={20} height={20} />
               </button>
             </li>

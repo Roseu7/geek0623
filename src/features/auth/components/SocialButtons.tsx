@@ -4,7 +4,6 @@ import Image from "next/image";
 import Google from "@/assets/logos/google.png";
 import X from "@/assets/logos/x.png";
 import Discord from "@/assets/logos/discord.png";
-import Apple from "@/assets/logos/apple.png";
 import { createClient } from "@/utils/supabase/client";
 
 const supabase = createClient();
