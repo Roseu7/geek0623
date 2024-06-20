@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   // useLocationから現在のURLのパスを取得
-  const { pathname } = useLocation();
+  const pathname = usePathname();
 
   // ヘッダータイトルを格納する変数を初期化
   let title: string = "";
