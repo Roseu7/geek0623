@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
   // useLocationから現在のURLのパスを取得
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
 
   // ヘッダータイトルを格納する変数を初期化
   let title: string = "";

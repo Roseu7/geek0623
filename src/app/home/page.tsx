@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 
 import Header from "@/components/Header";
@@ -7,7 +6,7 @@ import DairyMessages from "@/features/main/components/DairyMessages";
 import CreateDairy from "@/features/main/components/CreateDairy";
 import DairyInput from "@/features/main/components/DairyInput";
 
-export default function page() {
+export default async function page() {
     return (
     <div className="flex flex-col min-h-screen bg-zinc-100">
         <Header />
