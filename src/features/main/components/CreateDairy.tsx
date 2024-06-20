@@ -3,8 +3,8 @@ import { Button } from "@chakra-ui/react";
 
 export default function CreateDairy() {
   return (
-    <div className="visible sm:hidden relative">
-      <div className="relative flex right-4 bottom-6 justify-end">
+    <div className="visible sm:hidden sticky z-20 bottom-20">
+      <div className="flex justify-end mr-4">
         <a href="/home/post">
           <Button
             colorScheme="teal"
