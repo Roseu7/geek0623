@@ -1,7 +1,4 @@
-"use client";
 import React from "react";
-import { createClient } from "@/utils/supabase/server"
-import { redirect } from "next/navigation"
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,13 +7,6 @@ import CreateDairy from "@/features/main/components/CreateDairy";
 import DairyInput from "@/features/main/components/DairyInput";
 
 export default async function page() {
-    const supabase = createClient()
-    
-    const { data, error } = await supabase.auth.getUser()
-    if (error || !data?.user) {
-        redirect('/auth')
-    }
-    
     return (
     <div className="flex flex-col min-h-screen bg-zinc-100">
         <Header />
