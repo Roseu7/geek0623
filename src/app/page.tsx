@@ -1,4 +1,3 @@
-import { Main } from "@/features/main/components/Main";
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 
@@ -11,8 +10,6 @@ export default async function Home() {
   }
 
   return (
-    <div className="relative antialiased">
-      <Main />
-    </div>
+    redirect('/home')
   );
 }
