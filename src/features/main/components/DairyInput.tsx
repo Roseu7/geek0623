@@ -21,7 +21,7 @@ export default function DairyInput() {
   };
 
   return (
-    <div className="p-4 border-b bg-white rounded-lg">
+    <div className="hidden sm:block p-4 border-b bg-white rounded-lg">
       <textarea
         placeholder="今日はどんなことがありましたか？"
         className="w-full border-none focus:ring-0 min-h-24 max-h-64"
