@@ -1,5 +1,6 @@
 "use client";
 import { createClient } from "@/utils/supabase/client";
+import { Button } from "@chakra-ui/react";
 import React from "react";
 
 export default function DairyInput() {
@@ -23,17 +24,16 @@ export default function DairyInput() {
     <div className="p-4 border-b bg-white rounded-lg">
       <textarea
         placeholder="今日はどんなことがありましたか？"
-        className="w-full border-none focus:ring-0 min-h-24 "
-        rows={2}
+        className="w-full border-none focus:ring-0 min-h-24 max-h-64"
       />
       {/* 投稿ボタン */}
       <div className="flex justify-end mt-2">
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
+        <Button
+          colorScheme="teal"
           onClick={(event) => handleSendMessage(event.currentTarget.value)}
         >
           投稿する
-        </button>
+        </Button>
       </div>
     </div>
   );
