@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@chakra-ui/react";
 
-export default function CreateDairy() {
+export default function CreateMessage() {
   return (
     <div className="visible sm:hidden sticky z-20 bottom-20">
       <div className="flex justify-end mr-4">

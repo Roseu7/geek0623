@@ -1,25 +1,24 @@
-import React from "react";
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import DairyMessages from "@/features/main/components/DairyMessages";
-import CreateDairy from "@/features/main/components/CreateDairy";
-import DairyInput from "@/features/main/components/DairyInput";
+import MessageInput from "@/features/main/components/MessageInput";
+import ShowMessages from "@/features/main/components/ShowMessages";
+import CreateMessage from "@/features/main/components/CreateMessage";
 
-export default async function HomePage() {
+
+export default function MainPage(): JSX.Element {
     return (
-    <div className="flex flex-col min-h-screen bg-zinc-100">
+        <div className="flex flex-col min-h-screen bg-zinc-100">
         <Header />
         <main className="flex-1 overflow-y-auto">
             <div className="container mx-auto px-4 py-6">
-                <div className="hidden sm:block">
-                    <DairyInput />
-                </div>
-                <DairyMessages />
+            <div className="hidden sm:block">
+                <MessageInput />
+            </div>
+            <ShowMessages />
             </div>
         </main>
-        <CreateDairy />
+        <CreateMessage />
         <Footer />
-    </div>
+        </div>
     );
 }
