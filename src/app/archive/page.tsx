@@ -4,7 +4,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export default function Archive() {
+export default function ArchivePage() {
   return (
     <div className="flex flex-col min-h-screen bg-zinc-100">
       <Header />

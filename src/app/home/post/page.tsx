@@ -1,11 +1,11 @@
-"use client";
+
 import React from "react";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DairyInput from "@/features/main/components/DairyInput";
 
-export default function page() {
+export default function PostPage() {
   return (
     <div className="flex flex-col min-h-screen bg-zinc-100">
       <Header />
