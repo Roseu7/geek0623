@@ -9,7 +9,7 @@ export default function Header() {
   const pathname = usePathname() || "/";
 
   // パスに応じたヘッダータイトルのマッピング
-  const titles = {
+  const titles: { [key: string]: string } = {
     "/home": "ホーム",
     "/archive": "アーカイブ",
     "/mypage": "マイページ",
