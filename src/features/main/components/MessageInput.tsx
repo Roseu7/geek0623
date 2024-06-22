@@ -1,7 +1,8 @@
 'use client'
 import { createClient } from "@/utils/supabase/client";
-import { Button } from "@chakra-ui/react";
+import { Button, Box, Textarea } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import AutosizeTextarea from 'react-textarea-autosize';
 
 export default function MessageInput(): JSX.Element {
   const supabase = createClient();
@@ -17,16 +18,19 @@ export default function MessageInput(): JSX.Element {
 
   const sendMessage = async () => {
     try {
-      const { error } = await supabase
-        .from('messages')
-        .insert([{ text: text.trim(), uid: user, created_at: new Date().toISOString() }]);
+      if (!(text === '' || text === null || text === undefined)) {
+        const { error } = await supabase
+          .from('messages')
+          .insert([{ text: text.trim(), uid: user, created_at: new Date().toISOString() }]);
 
-      if (error) {
-        throw error;
+        if (error) {
+          throw error;
+        }
+      } else {
+        console.error('Message is empty');
       }
 
       setText('');
-      console.log('Message sent successfully');
 
       const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
       if (isMobile) {
@@ -41,19 +45,27 @@ export default function MessageInput(): JSX.Element {
   };
 
   return (
-    <div>
-      <textarea
+    <Box pos="relative">
+      <Textarea
         value={text}
         placeholder="今日はどんなことがありましたか？"
+        resize={"none"}
+        colorScheme="gray"
+        variant={"filled"}
+        as={AutosizeTextarea}
+        bg={"#FFFFFF"}
         onChange={(e) => setText(e.target.value)}
-        className="w-full p-2 border rounded"
       />
-      <Button
-          colorScheme="teal"
-          onClick={sendMessage}
-        >
-          投稿する
+      <Box>
+        <Button
+            colorScheme="teal"
+            pos={"absolute"}
+            right="0%"
+            onClick={sendMessage}
+          >
+            投稿する
         </Button>
-    </div>
+      </Box>
+    </Box>
   );
 }

@@ -43,9 +43,9 @@ export default function GetMessages({ date }: { date: string }) {
     return (
         <div>
             {messages.map((message) => (
-                <div key={message.id} className="p-4 bg-white shadow-md rounded-md my-2">
-                    <p>{message.text}</p>
-                    <span>{new Date(message.created_at).toLocaleString()}</span>
+                <div key={message.id} className="text-lg p-4 bg-white shadow-md rounded-md my-2">
+                    <p className="opacity-60 text-sm text-right">{new Date(message.created_at).toLocaleString()}</p>
+                    <p className="">{message.text}</p>
                 </div>
             ))}
         </div>
