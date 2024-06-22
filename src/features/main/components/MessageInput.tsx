@@ -54,7 +54,7 @@ export default function MessageInput(): JSX.Element {
   };
 
   return (
-    <Card variant="outline" padding={2} borderRadius="lg">
+    <Card variant="outline" padding={2} borderRadius="lg" marginBottom={4}>
       <Flex direction="column">
         <Textarea
           value={text}
