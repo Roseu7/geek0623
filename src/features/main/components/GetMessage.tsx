@@ -3,8 +3,9 @@
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 import { FetchMessages } from "../components/FetchMessages";
-import { Box, Card, Flex, Spacer, Text } from "@chakra-ui/react";
+import { Card, Flex, Spacer, Text } from "@chakra-ui/react";
 import { MdBookmarkBorder, MdDeleteOutline } from "react-icons/md";
+import { Anzumoji } from "@/assets/fonts/fonts";
 
 type Message = {
   id: number;
@@ -86,7 +87,9 @@ export default function GetMessages({ date }: { date: string }) {
         >
           <Flex direction="column" gap={8}>
             <Flex direction="row" align="center" gap={2}>
-              <Text>{message.text}</Text>
+              <Text fontSize={"2xl"} className={Anzumoji.className}>
+                {message.text}
+              </Text>
               <Spacer />
               <Text fontSize="xs">
                 {getFormattedDate(
