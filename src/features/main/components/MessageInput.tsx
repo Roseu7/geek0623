@@ -14,8 +14,7 @@ export default function MessageInput(): JSX.Element {
       const { data } = await supabase.auth.getUser();
       setUser(data.user?.id);
     })();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [supabase.auth]);
 
   const sendMessage = async () => {
     try {
