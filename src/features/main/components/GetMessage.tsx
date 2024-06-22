@@ -44,42 +44,66 @@ const getFormattedDate = (date: Date, format: string): string => {
 };
 
 export default function GetMessages({ date }: { date: string }) {
-    const supabase = createClient();
-    const [user, setUser] = useState<string | undefined>(undefined);
-    const [messages, setMessages] = useState<Message[]>([]);
+  const supabase = createClient();
+  const [user, setUser] = useState<string | undefined>(undefined);
+  const [messages, setMessages] = useState<Message[]>([]);
 
-    useEffect(() => {
-        const fetchUser = async () => {
-            const { data, error } = await supabase.auth.getUser();
-            if (error) {
-                console.error('Error fetching user:', error.message);
-            } else {
-                setUser(data.user?.id);
-            }
-        };
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data, error } = await supabase.auth.getUser();
+      if (error) {
+        console.error("Error fetching user:", error.message);
+      } else {
+        setUser(data.user?.id);
+      }
+    };
 
-        fetchUser();
-    }, );
+    fetchUser();
+  });
 
-    useEffect(() => {
-        const loadMessages = async () => {
-            if (user) {
-                const messages = await FetchMessages();
-                setMessages(messages);
-            }
-        };
+  useEffect(() => {
+    const loadMessages = async () => {
+      if (user) {
+        const messages = await FetchMessages();
+        setMessages(messages);
+      }
+    };
 
-        loadMessages();
-    }, [user, date]);
+    loadMessages();
+  }, [user, date]);
 
-    return (
-        <div>
-            {messages.map((message) => (
-                <div key={message.id} className="text-lg p-4 bg-white shadow-md rounded-md my-2">
-                    <p className="opacity-60 text-sm text-right">{new Date(message.created_at).toLocaleString()}</p>
-                    <p className="">{message.text}</p>
-                </div>
-            ))}
-        </div>
-    );
+  return (
+    <>
+      {messages.map((message) => (
+        <Card
+          variant="outline"
+          paddingX={6}
+          paddingY={4}
+          borderRadius="lg"
+          key={message.id}
+          marginTop={4}
+        >
+          <Flex direction="column" gap={8}>
+            <Flex direction="row" align="center" gap={2}>
+              <Text fontSize={"2xl"} className={Anzumoji.className}>
+                {message.text}
+              </Text>
+              <Spacer />
+              <Text fontSize="xs">
+                {getFormattedDate(
+                  new Date(message.created_at),
+                  "hh:mm yyyy/MM/dd"
+                )}
+              </Text>
+            </Flex>
+            <Flex direction="row" align="center" gap={2}>
+              <Spacer />
+              <MdBookmarkBorder size={24} />
+              <MdDeleteOutline size={24} />
+            </Flex>
+          </Flex>
+        </Card>
+      ))}
+    </>
+  );
 }
