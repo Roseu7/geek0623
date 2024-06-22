@@ -10,13 +10,13 @@ export default function MessageInput(): JSX.Element {
   const [user, setUser] = useState<string | undefined>(undefined);
 
   // ユーザー情報の取得
-  useEffect(() => {
-    const fetchUser = async () => {
-      const { data } = await supabase.auth.getUser();
-      setUser(data.user?.id);
-    };
-    fetchUser();
-  }, []);
+    useEffect(() => {
+      const fetchUser = async () => {
+        const { data } = await supabase.auth.getUser();
+        setUser(data.user?.id);
+      };
+      fetchUser();
+    }, [supabase.auth]);
 
   // メッセージの送信
   const sendMessage = async () => {

@@ -44,6 +44,7 @@ const getFormattedDate = (date: Date, format: string): string => {
 };
 
 export default function GetMessages({ date }: { date: string }) {
+
   const supabase = createClient();
   const [user, setUser] = useState<string | undefined>(undefined);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -60,6 +61,7 @@ export default function GetMessages({ date }: { date: string }) {
     };
 
     fetchUser();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // メッセージをロード
