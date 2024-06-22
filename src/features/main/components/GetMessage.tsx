@@ -27,7 +27,7 @@ export default function GetMessages({ date }: { date: string }) {
         };
 
         fetchUser();
-    }, []);
+    }, );
 
     useEffect(() => {
         const loadMessages = async () => {
