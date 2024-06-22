@@ -1,11 +1,18 @@
 // https://supabase.com/docs/guides/auth/server-side/nextjs
 
-import { type NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 import { updateSession } from '@/utils/supabase/middleware'
+import { createClient } from './utils/supabase/server'
 
-export async function middleware(request: NextRequest) {
-    console.log("Middleware triggered")
-    return await updateSession(request)
+
+export async function middleware(req: NextRequest) {
+    const supabase = createClient()
+    const { nextUrl } = req;
+    const { data, error } = await supabase.auth.getUser()
+    if (error || !data?.user) {
+        return NextResponse.redirect(new URL('/auth', nextUrl))
+    }
+    return await updateSession(req)
 }
 
 export const config = {

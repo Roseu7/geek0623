@@ -1,9 +1,8 @@
-
 import React from "react";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import DairyInput from "@/features/main/components/DairyInput";
+import MessageInput from "@/features/main/components/MessageInput";
 
 export default function PostPage() {
   return (
@@ -11,7 +10,7 @@ export default function PostPage() {
       <Header />
       <main className="flex-1 overflow-y-auto">
         <div className="container mx-auto px-4 py-6">
-          <DairyInput />
+          <MessageInput />
         </div>
       </main>
       <Footer />

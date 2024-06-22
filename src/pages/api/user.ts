@@ -10,5 +10,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const user = data.session.user
+    console.log(user)
     return res.status(200).json({ user })
 }
