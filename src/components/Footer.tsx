@@ -6,7 +6,7 @@ import { GoHome, GoHomeFill } from "react-icons/go";
 import React from "react";
 
 // アイコンリンクコンポーネントの定義
-const IconLink = ({ href, icon }) => (
+const IconLink = ({ href, icon }: { href: string; icon: any }) => (
   <Link href={href}>
     <Icon as={icon} height={8} width={8} />
   </Link>
