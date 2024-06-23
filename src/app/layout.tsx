@@ -5,7 +5,7 @@ import { genjyuuRegular } from "@/assets/fonts/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Botomeru",
+  title: "ぼとめる",
   description: "匿名交換日記アプリ",
 };
 

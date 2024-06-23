@@ -19,3 +19,10 @@ export const genjyuuBold = localFont({
   style: "bold", // フォントのスタイルを指定
   display: "swap", // フォントの表示方法を指定
 });
+
+export const Anzumoji = localFont({
+  src: "./APJapanesefont.ttf",
+  weight: "400", // フォントのウェイトを指定
+  style: "normal", // フォントのスタイルを指定
+  display: "swap", // フォントの表示方法を指定
+});

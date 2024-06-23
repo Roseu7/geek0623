@@ -1,14 +1,37 @@
-'use client';
+"use client";
 
-import { createClient } from '@/utils/supabase/client';
-import { useEffect, useState } from 'react';
-import { FetchMessages } from '../components/FetchMessages'; // インポート
+import { createClient } from "@/utils/supabase/client";
+import { useEffect, useState } from "react";
+import { FetchMessages } from "../components/FetchMessages";
+import { Message } from "@/types/index";
 
-type Message = {
-    id: number;
-    created_at: string;
-    uid: string;
-    text: string | null;
+// 日付を指定のフォーマットに変換する関数
+const getFormattedDate = (date: Date, format: string): string => {
+  // 日付コンポーネントを取得し、必要に応じてゼロ埋めを行う関数
+  const zeroPad = (num: number, places: number) =>
+    String(num).padStart(places, "0");
+
+  // 日付の各コンポーネントをマッピング
+  const symbols: { [key: string]: number | string } = {
+    M: date.getMonth() + 1,
+    d: date.getDate(),
+    h: date.getHours() % 12 || 12,
+    m: date.getMinutes(),
+    s: date.getSeconds(),
+    yyyy: date.getFullYear(),
+    MM: zeroPad(date.getMonth() + 1, 2),
+    dd: zeroPad(date.getDate(), 2),
+    hh: zeroPad(date.getHours() % 12 || 12, 2),
+    mm: zeroPad(date.getMinutes(), 2),
+    ss: zeroPad(date.getSeconds(), 2),
+    a: date.getHours() < 12 ? "午前" : "午後",
+  };
+
+  // 指定されたフォーマットに従って日付を整形
+  return format.replace(
+    /(yyyy|MM|dd|hh|mm|ss|a)/g,
+    (match) => `${symbols[match]}`
+  );
 };
 
 export default function GetMessages({ date }: { date: string }) {
@@ -27,8 +50,7 @@ export default function GetMessages({ date }: { date: string }) {
         };
 
         fetchUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, );
 
     useEffect(() => {
         const loadMessages = async () => {
