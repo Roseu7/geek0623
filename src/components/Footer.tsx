@@ -18,7 +18,7 @@ export default function Footer() {
       <Container maxW="container.lg" px={16} py={3}>
         <Flex justify="space-between">
           {/* アイコンリンクの使用 */}
-          <IconLink href="/home" icon={GoHome} />
+          <IconLink href="/home" icon={GoHomeFill} />
           <IconLink href="/archive" icon={HiArchive} />
           <IconLink href="/mypage" icon={MdPerson} />
         </Flex>
