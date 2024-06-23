@@ -13,23 +13,19 @@ import {
   Tabs,
 } from "@chakra-ui/react";
 import { login, signup } from "./actions";
-import Header from "@/components/Header";
-import { BackgroundImage } from "@/components/BackgroundImage";
 import { Link } from "@chakra-ui/next-js";
 import BackArrow from "@/components/ui/BackArrow";
 
 export default function LoginPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* <BackgroundImage /> */}
-      {/* <Header /> */}
       <BackArrow />
       <Stack
         spacing="48px"
         direction={["column", "row"]}
         className="flex-1 overflow-y-auto"
       >
-        <div className="container mx-auto min-w-64 px-12 mt-12">
+        <div className="container mx-auto min-w-64 px-6 mt-12">
           <Tabs align="center">
             <TabList gap={12}>
               <Tab>電話番号</Tab>
@@ -39,23 +35,26 @@ export default function LoginPage() {
               <TabPanel>
                 <Stack spacing={4} marginTop={2}>
                   <InputGroup>
-                    <InputLeftAddon borderLeftRadius={"full"}>
+                    <InputLeftAddon borderLeftRadius={"full"} padding={6}>
                       +81
                     </InputLeftAddon>
                     <Input
                       type="tel"
                       placeholder="90-XXXX-XXXX"
                       borderRadius={"full"}
+                      padding={6}
                     />
                   </InputGroup>
-                  <Button
-                    w={"full"}
-                    colorScheme="teal"
-                    padding={6}
-                    borderRadius={"full"}
-                  >
-                    次へ
-                  </Button>
+                  <Link href="/login/phone">
+                    <Button
+                      w={"full"}
+                      colorScheme="teal"
+                      padding={6}
+                      borderRadius={"full"}
+                    >
+                      次へ
+                    </Button>
+                  </Link>
                 </Stack>
               </TabPanel>
               <TabPanel>
@@ -94,4 +93,15 @@ export default function LoginPage() {
       </Stack>
     </div>
   );
+}
+
+{
+  /* <form>
+<label htmlFor="email">Email:</label><br/>
+<input id="email" name="email" type="email" required /><br/>
+<label htmlFor="password">Password:</label><br/>
+<input id="password" name="password" type="password" required /><br/>
+<button formAction={login}>Log in</button><br/>
+<button formAction={signup}>Sign up</button>
+</form> */
 }
