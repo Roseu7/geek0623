@@ -23,7 +23,7 @@ export default function Header() {
     <Box bg="white" boxShadow="sm" position="sticky" top={0} zIndex={10}>
       <Container maxW="container.lg" px={6} py={3}>
         <Flex align="center" justify="space-between">
-          <Link href={pathname}>
+          <Link href={pathname} _hover={{ textDecoration: "none" }}>
             <Heading as="h1" size="md" fontFamily={genjyuuBold.className}>
               {title}
             </Heading>
