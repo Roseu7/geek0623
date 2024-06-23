@@ -3,11 +3,11 @@ import Footer from "@/components/Footer";
 import MessageInput from "@/features/main/components/MessageInput";
 import ShowMessages from "@/features/main/components/ShowMessages";
 import CreateMessage from "@/features/main/components/CreateMessage";
-import { Stack } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 
 export default function MainPage(): JSX.Element {
   return (
-    <div className="flex flex-col min-h-screen">
+    <Box className="flex flex-col min-h-screen" bg="gray.100">
       <Header />
       <Stack
         spacing="24px"
@@ -23,6 +23,6 @@ export default function MainPage(): JSX.Element {
       </Stack>
       <CreateMessage />
       <Footer />
-    </div>
+    </Box>
   );
 }
