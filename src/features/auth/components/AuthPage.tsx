@@ -42,7 +42,7 @@ export function AuthPage() {
               h="14"
               gap={2}
               className={genjyuuBold.className}
-              onClick={() => router.push("/login")}
+              onClick={() => router.push("/auth/login")}
             >
               <PhoneIcon />
               電話番号・メールで続ける

@@ -7,6 +7,7 @@ import { Message } from "@/types/index";
 import { Card, Flex, Spacer, Text } from "@chakra-ui/react";
 import { MdBookmarkBorder, MdDeleteOutline } from "react-icons/md";
 import { Anzumoji } from "@/assets/fonts/fonts";
+import { useRouter } from "next/router";
 
 // 日付を指定のフォーマットに変換する関数
 const getFormattedDate = (date: Date, format: string): string => {
@@ -66,6 +67,18 @@ export default function GetMessages({ date }: { date: string }) {
     loadMessages();
   }, [user, date]);
 
+  const deleteMessage = async (messageId: number) => {
+    try {
+        const res = await supabase
+            .from("messages")
+            .delete()
+            .eq("id", messageId);
+        window.location.reload();
+    } catch (error) {
+        console.error("Error deleting message:", error);
+    }
+  }
+
   return (
     <>
       {messages.map((message) => (
@@ -90,7 +103,7 @@ export default function GetMessages({ date }: { date: string }) {
                 )}
               </Text>
             </Flex>
-            <Flex direction="row" align="center" gap={2}>
+            <Flex direction="row" align="center" gap={2} onClick={() => deleteMessage(message.id)}>
               <Spacer />
               {/* <MdBookmarkBorder size={24} /> */}
               <MdDeleteOutline size={24} />

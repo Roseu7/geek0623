@@ -56,3 +56,14 @@ export async function logout() {
     revalidatePath('/', 'layout')
     redirect('/')
 }
+
+export async function signupWithOtp(Email: string) {
+    const supabase = createClient();
+    const { data, error } = await supabase.auth.signInWithOtp({
+    email: Email,
+    options: {
+        shouldCreateUser: false,
+    },
+    })
+
+}

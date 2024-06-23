@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import BackArrow from "@/components/ui/BackArrow"; // カスタムバックアローコンポーネント
+import { login, signup } from "../../actions";
 
 // パスワード入力コンポーネント
 export default function PasswordInput() {
@@ -47,6 +48,8 @@ export default function PasswordInput() {
       <Stack spacing={4} maxW="md" mx="auto" mt={8} p={6} rounded="md">
         <InputGroup>
           <Input
+            id="password"
+            name="password"
             type={showPassword ? "text" : "password"}
             placeholder="入力してください"
             value={password}
@@ -62,7 +65,7 @@ export default function PasswordInput() {
             />
           </InputRightElement>
         </InputGroup>
-        <Button colorScheme="teal" onClick={handleSubmit}>
+        <Button colorScheme="teal" onClick={handleSubmit} formAction={signup}>
           次へ
         </Button>
       </Stack>

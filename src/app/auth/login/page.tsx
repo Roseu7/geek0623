@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
 import BackArrow from "@/components/ui/BackArrow";
+import { signupWithOtp } from "./actions";
 
 export default function LoginPage() {
   const [inputValue, setInputValue] = useState("");
@@ -52,7 +53,7 @@ export default function LoginPage() {
                       padding={6}
                     />
                   </InputGroup>
-                  <Link href="/login/phone">
+                  <Link href="/auth/login/phone">
                     <Button
                       w="full"
                       colorScheme="teal"
@@ -68,18 +69,22 @@ export default function LoginPage() {
               <TabPanel>
                 <Stack spacing={4} marginTop={2}>
                   <Input
+                    id="email"
+                    name="email"
+                    type="email"
                     borderRadius="full"
                     padding={6}
                     placeholder="入力してください"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                   />
-                  <Link href="/login/mail">
+                  <Link href="/auth/login/mail">
                     <Button
                       w="full"
                       colorScheme="teal"
                       padding={6}
                       borderRadius="full"
+                      onClick={() => signupWithOtp(inputValue)}
                     >
                       次へ
                     </Button>
