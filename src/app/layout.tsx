@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "@/utils/chakra-ui/providers";
 import { inter } from "@/assets/fonts/fonts";
-import { genjyuuRegular } from "@/assets/fonts/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${inter.className} ${genjyuuRegular.className}`}>
+      <body className={`${inter.className}`}>
         <Providers>{children}</Providers>
       </body>
     </html>
