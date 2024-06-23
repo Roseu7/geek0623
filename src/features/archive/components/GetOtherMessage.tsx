@@ -2,11 +2,17 @@
 
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
-import { FetchMessages } from "../components/FetchMessages";
-import { Message } from "@/types/index";
+import { FetchMessages } from "@/features/main/components/FetchMessages";
 import { Card, Flex, Spacer, Text } from "@chakra-ui/react";
 import { MdBookmarkBorder, MdDeleteOutline } from "react-icons/md";
 import { Anzumoji } from "@/assets/fonts/fonts";
+
+type Message = {
+  id: number;
+  created_at: string;
+  uid: string;
+  text: string | null;
+};
 
 // 日付を指定のフォーマットに変換する関数
 const getFormattedDate = (date: Date, format: string): string => {
@@ -37,7 +43,7 @@ const getFormattedDate = (date: Date, format: string): string => {
   );
 };
 
-export default function GetMessages({ date }: { date: string }) {
+export default function GetOtherMessages({ date }: { date: string }) {
   const supabase = createClient();
   const [user, setUser] = useState<string | undefined>(undefined);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -92,8 +98,8 @@ export default function GetMessages({ date }: { date: string }) {
             </Flex>
             <Flex direction="row" align="center" gap={2}>
               <Spacer />
-              {/* <MdBookmarkBorder size={24} /> */}
-              <MdDeleteOutline size={24} />
+              <MdBookmarkBorder size={24} />
+              {/* <MdDeleteOutline size={24} /> */}
             </Flex>
           </Flex>
         </Card>

@@ -1,17 +1,20 @@
 "use client";
-import React from "react";
-
+import { Box, Container, Flex } from "@chakra-ui/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ShowOtherMessages from "@/features/archive/components/ShowOtherMessages";
 
-export default function ArchivePage() {
+export default function MyPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-zinc-100">
+    <Box display="flex" flexDirection="column" minHeight="100vh" bg="gray.100">
       <Header />
-      <main className="flex-1 overflow-y-auto">
-        <div className="container mx-auto px-4 py-6"></div>
-      </main>
+      <Flex flex="1" overflowY="auto">
+        <Container maxW="container.md" py="6">
+          {/* ここにページ固有のコンテンツを配置 */}
+          <ShowOtherMessages />
+        </Container>
+      </Flex>
       <Footer />
-    </div>
+    </Box>
   );
 }
