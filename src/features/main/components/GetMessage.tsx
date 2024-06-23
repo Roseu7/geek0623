@@ -4,7 +4,21 @@ import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 import { FetchMessages } from "../components/FetchMessages";
 import { Message } from "@/types/index";
-import { Card, Flex, Spacer, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Card,
+  Flex,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Spacer,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { MdBookmarkBorder, MdDeleteOutline } from "react-icons/md";
 import { Anzumoji } from "@/assets/fonts/fonts";
 import { useRouter } from "next/router";
@@ -69,15 +83,14 @@ export default function GetMessages({ date }: { date: string }) {
 
   const deleteMessage = async (messageId: number) => {
     try {
-        const res = await supabase
-            .from("messages")
-            .delete()
-            .eq("id", messageId);
-        window.location.reload();
+      const res = await supabase.from("messages").delete().eq("id", messageId);
+      window.location.reload();
     } catch (error) {
-        console.error("Error deleting message:", error);
+      console.error("Error deleting message:", error);
     }
-  }
+  };
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
@@ -103,10 +116,37 @@ export default function GetMessages({ date }: { date: string }) {
                 )}
               </Text>
             </Flex>
-            <Flex direction="row" align="center" gap={2} onClick={() => deleteMessage(message.id)}>
+            <Flex
+              direction="row"
+              align="center"
+              gap={2}
+              onClick={() => deleteMessage(message.id)}
+            >
               <Spacer />
               {/* <MdBookmarkBorder size={24} /> */}
-              <MdDeleteOutline size={24} />
+              <Button size={"sm"}>
+                <MdDeleteOutline size={24} onClick={onOpen} />
+              </Button>
+              <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                  <ModalHeader>日記を捨てる</ModalHeader>
+                  <ModalCloseButton />
+                  <ModalBody>ほんとうに捨ててしまいますか？</ModalBody>
+
+                  <ModalFooter>
+                    <Button variant="ghost" mr={3} onClick={onClose}>
+                      やめる
+                    </Button>
+                    <Button
+                      colorScheme="blue"
+                      onClick={() => deleteMessage(message.id)}
+                    >
+                      捨てる
+                    </Button>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>{" "}
             </Flex>
           </Flex>
         </Card>
