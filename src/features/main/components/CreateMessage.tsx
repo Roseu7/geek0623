@@ -2,6 +2,7 @@
 import { Button } from "@chakra-ui/react";
 import NextLink from "next/link"; // Next.jsのリンクコンポーネントを使用するために必要
 import { useState, useEffect } from "react";
+import { AddIcon } from "@chakra-ui/icons";
 
 export default function PostButton() {
   const [loading, setLoading] = useState(true); // データ取得中の状態管理
@@ -27,7 +28,7 @@ export default function PostButton() {
     <div className="visible sm:hidden sticky z-20 bottom-20">
       <div className="flex justify-end mr-4">
         {loading ? (
-          <p>Loading...</p>
+          <p>ロード中</p>
         ) : (
           <NextLink href="/home/post" passHref>
             <Button
@@ -38,7 +39,8 @@ export default function PostButton() {
               height="64px"
               width="64px"
             >
-              投稿
+              {/* <Box as={MdCreate} w={48} h={48} /> */}
+              <AddIcon boxSize={6} />
             </Button>
           </NextLink>
         )}

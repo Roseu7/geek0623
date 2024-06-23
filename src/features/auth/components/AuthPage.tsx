@@ -9,6 +9,8 @@ import {
 } from "@/features/auth/components/SocialButtons";
 import { PhoneIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/navigation";
+import botomelIcon from "@/assets/icon.png";
+import Image from "next/image";
 
 export function AuthPage() {
   const router = useRouter();
@@ -16,8 +18,14 @@ export function AuthPage() {
   return (
     <Center minH="100vh" maxW="screen-sm" mx="auto" position="relative">
       <BackgroundImage />
-      <Box w="full" px={12} pt={48}>
+      <Box w="full" px={12}>
         <Flex direction="column" align="center">
+          <Image
+            src={botomelIcon}
+            width={256}
+            height={256}
+            alt="アプリのアイコン"
+          />
           {/* タイトル */}
           <Box
             fontSize="3xl"

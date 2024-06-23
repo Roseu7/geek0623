@@ -1,8 +1,8 @@
 "use client";
 import { Box, Container, Flex, Link, Icon } from "@chakra-ui/react";
-import { MdHome, MdPerson } from "react-icons/md";
+import { MdPerson } from "react-icons/md";
 import { HiArchive } from "react-icons/hi";
-import { GoHome, GoHomeFill } from "react-icons/go";
+import { GoHomeFill } from "react-icons/go";
 import React from "react";
 
 // アイコンリンクコンポーネントの定義
