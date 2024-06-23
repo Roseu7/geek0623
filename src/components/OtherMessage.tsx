@@ -43,7 +43,7 @@ const getFormattedDate = (date: Date, format: string): string => {
   );
 };
 
-export default function GetMessages({ date }: { date: string }) {
+export default function OtherMessages({ date }: { date: string }) {
   const supabase = createClient();
   const [user, setUser] = useState<string | undefined>(undefined);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -98,7 +98,7 @@ export default function GetMessages({ date }: { date: string }) {
             </Flex>
             <Flex direction="row" align="center" gap={2}>
               <Spacer />
-              {/* <MdBookmarkBorder size={24} /> */}
+              <MdBookmarkBorder size={24} />
               <MdDeleteOutline size={24} />
             </Flex>
           </Flex>

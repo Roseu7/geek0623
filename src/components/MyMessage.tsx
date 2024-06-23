@@ -43,7 +43,7 @@ const getFormattedDate = (date: Date, format: string): string => {
   );
 };
 
-export default function GetMessages({ date }: { date: string }) {
+export default function MyMessages({ date }: { date: string }) {
   const supabase = createClient();
   const [user, setUser] = useState<string | undefined>(undefined);
   const [messages, setMessages] = useState<Message[]>([]);
