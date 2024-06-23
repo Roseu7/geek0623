@@ -75,6 +75,7 @@ export type Database = {
           bookmarks: Json | null
           full_name: string | null
           id: string
+          settings: Json | null
           updated_at: string | null
           username: string | null
         }
@@ -82,6 +83,7 @@ export type Database = {
           bookmarks?: Json | null
           full_name?: string | null
           id: string
+          settings?: Json | null
           updated_at?: string | null
           username?: string | null
         }
@@ -89,6 +91,7 @@ export type Database = {
           bookmarks?: Json | null
           full_name?: string | null
           id?: string
+          settings?: Json | null
           updated_at?: string | null
           username?: string | null
         }

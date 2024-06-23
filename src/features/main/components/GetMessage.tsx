@@ -2,17 +2,11 @@
 
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
-import { FetchMessages } from "@/features/main/components/FetchMessages";
+import { FetchMessages } from "../components/FetchMessages";
+import { Message } from "@/types/index";
 import { Card, Flex, Spacer, Text } from "@chakra-ui/react";
 import { MdBookmarkBorder, MdDeleteOutline } from "react-icons/md";
 import { Anzumoji } from "@/assets/fonts/fonts";
-
-type Message = {
-  id: number;
-  created_at: string;
-  uid: string;
-  text: string | null;
-};
 
 // 日付を指定のフォーマットに変換する関数
 const getFormattedDate = (date: Date, format: string): string => {
