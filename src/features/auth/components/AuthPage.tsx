@@ -1,48 +1,60 @@
-import Image from "next/image";
+"use client";
+import { Box, Button, Center, Flex, Link, Text } from "@chakra-ui/react";
 import { BackgroundImage } from "@/components/BackgroundImage";
-import { genjyuuBold } from "@/assets/fonts/fonts";
-import Apple from "@/assets/logos/apple.png";
-import { DiscordLoginButton, GoogleLoginButton, XLoginButton } from "./SocialButtons";
+import { genjyuuBold, genjyuuRegular } from "@/assets/fonts/fonts";
+import {
+  DiscordLoginButton,
+  GoogleLoginButton,
+  XLoginButton,
+} from "@/features/auth/components/SocialButtons";
+import { PhoneIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/navigation";
 
 export function AuthPage() {
+  const router = useRouter();
+
   return (
-    <div className="mx-auto min-h-screen max-w-screen-sm flex items-center justify-center">
+    <Center minH="100vh" maxW="screen-sm" mx="auto" position="relative">
       <BackgroundImage />
-      <div className="w-full px-12 pt-48">
-        <div className="flex flex-col items-center">
+      <Box w="full" px={12} pt={48}>
+        <Flex direction="column" align="center">
           {/* タイトル */}
-          <h1
-            className={`tracking-wide mb-16 text-center text-3xl text-zinc-900 ${genjyuuBold.className}`}
+          <Box
+            fontSize="3xl"
+            textAlign="center"
+            color="blackAlpha.800"
+            className={genjyuuBold.className}
           >
-            <a href="/">bottlemail</a>
-          </h1>
+            ボトメル
+          </Box>
+          <Text mb={12} fontSize="sm" className={genjyuuRegular.className}>
+            日記を瓶に詰め、届けてみましょう
+          </Text>
           {/* アカウント登録ボタン */}
-          <button className="py-4 bg-teal-500 rounded-full mb-8 w-80 h-14">
-            <p
-              className={`text-center text-slate-100 tracking-wide ${genjyuuBold.className}`}
+          <Flex direction="column">
+            <Button
+              py={4}
+              colorScheme="teal"
+              color="whiteAlpha.800"
+              rounded="full"
+              mb={8}
+              w="80"
+              h="14"
+              gap={2}
+              className={genjyuuBold.className}
+              onClick={() => router.push("/login")}
             >
+              <PhoneIcon />
               電話番号・メールで続ける
-            </p>
-          </button>
-          {/* Social */}
-          <ul className="flex justify-between items-center list-none w-80">
-            <li className="w-12 h-12 bg-zinc-200 rounded-full flex items-center justify-center">
+            </Button>
+            <Flex direction="row" justify="space-between">
               <GoogleLoginButton />
-            </li>
-            <li className="w-12 h-12 bg-zinc-200 rounded-full flex items-center justify-center">
               <XLoginButton />
-            </li>
-            <li className="w-12 h-12 bg-zinc-200 rounded-full flex items-center justify-center">
               <DiscordLoginButton />
-            </li>
-            <li className="w-12 h-12 bg-zinc-200 rounded-full flex items-center justify-center">
-              <button className="px-3 pt-3 pb-4 cursor-not-allowed" >
-                <Image src={Apple} alt="Apple" width={20} height={20} />
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+            </Flex>
+          </Flex>
+        </Flex>
+      </Box>
+    </Center>
   );
 }

@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import MessageInput from "@/features/main/components/MessageInput";
 import ShowMessages from "@/features/main/components/ShowMessages";
 import CreateMessage from "@/features/main/components/CreateMessage";
-import { Box, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 
 export default function MainPage(): JSX.Element {
   return (
