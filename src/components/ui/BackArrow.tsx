@@ -8,9 +8,9 @@ function BackArrow() {
   const navigation = useRouter();
 
   return (
-    <Box position="sticky" top={0} zIndex={10}>
+    <Box position="sticky" top={0} zIndex={10} marginTop={3} marginLeft={6}>
       <Box as="button" onClick={() => navigation.back()}>
-        <Icon as={MdArrowBackIos} boxSize={6} marginTop={4} marginLeft={4} />
+        <Icon as={MdArrowBackIos} boxSize={6} />
       </Box>
     </Box>
   );
